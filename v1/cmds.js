@@ -200,8 +200,8 @@ exports.playCmd = rl => {
         rl.prompt(); 
         } else {
            
-            let id = Math.floor(Math.random()*toBeResolved.length);
-            toBeResolved.splice(toBeResolved[id]);                                                                  
+            let id = toBeResolved[Math.floor(Math.random()*toBeResolved.length)];
+            toBeResolved.splice(toBeResolved.indexOf(id),1);                                                                  
             let quiz=model.getByIndex(id); 
             
             rl.question(colorize(quiz.question+ " ", "red"),answer=>{
